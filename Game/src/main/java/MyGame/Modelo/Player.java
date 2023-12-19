@@ -4,16 +4,24 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
+
+import java.util.List;
+import java.util.ArrayList;
+
 public class Player {
 
     private int x, y;
     private int dx, dy;
     private int height, width;
     private Image image;
+    
+    private List <Bullets> bullet;
 
     public Player() {
         this.x = 100;
         this.y = 100;
+        
+        bullet = new ArrayList<Bullets>(); 
     }
 
     public void load() {
@@ -26,6 +34,10 @@ public class Player {
     public void updateMove() {
         x += dx;
         y += dy;
+    }
+    
+    public void simpleBullet(){
+        this.bullet.add(new Bullets(x + width, y + (height/2)));
     }
 
     public void keyPressed(KeyEvent pressioned) {
@@ -45,6 +57,9 @@ public class Player {
 
             case KeyEvent.VK_RIGHT:
                 dx = 3;
+                break;
+            case KeyEvent.VK_SPACE:
+                simpleBullet();
                 break;
         }
     }
@@ -80,5 +95,9 @@ public class Player {
     
     public Image getImage(){
        return image; 
+    }
+    
+    public List<Bullets> getBullet(){
+        return bullet;
     }
 }
