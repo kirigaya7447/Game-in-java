@@ -19,7 +19,7 @@ public class Bullets {
     }
 
     public void load() {
-        ImageIcon reference = new ImageIcon("/home/joao4774/Documentos/Linguagens de programação/Java/Game-in-java/Game/src/main/java/Images/bullet.gif");
+        ImageIcon reference = new ImageIcon("/home/joao4774/Documentos/Linguagens de programação/Java/Game-in-java/Game/src/main/java/Images/bullet.png");
         image = reference.getImage();
 
         this.width = image.getWidth(null);
