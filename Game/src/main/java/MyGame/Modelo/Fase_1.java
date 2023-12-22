@@ -43,13 +43,13 @@ public class Fase_1 extends JPanel implements ActionListener {
             timer = new Timer(5, this);
             timer.start();
 
-            initEnemyes1();
             initStars();
+            initEnemyes1();
         }
     }
 
     public void initEnemyes1() {
-        int coord[] = new int[50];
+        int coord[] = new int[1000];
         enemies1 = new ArrayList<Enemies_1>();
         for (int cont = 0; cont < coord.length; cont++) {
             int randomX = (int) (Math.random() * 6000 + 1024);
