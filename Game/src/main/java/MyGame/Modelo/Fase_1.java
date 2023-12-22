@@ -15,6 +15,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.Timer;
 import java.util.List;
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 public class Fase_1 extends JPanel implements ActionListener {
@@ -23,6 +24,7 @@ public class Fase_1 extends JPanel implements ActionListener {
     private Player player;
     private Timer timer;
     private List<Enemies_1> enemies1;
+    private List<Stars> stars;
     private boolean gameStarted = true;
 
     public Fase_1() {
@@ -42,6 +44,7 @@ public class Fase_1 extends JPanel implements ActionListener {
             timer.start();
 
             initEnemyes1();
+            initStars();
         }
     }
 
@@ -55,9 +58,26 @@ public class Fase_1 extends JPanel implements ActionListener {
         }
     }
 
+    public void initStars() {
+        int coord[] = new int[1500];
+        stars = new ArrayList<Stars>();
+        for (int cont = 0; cont < coord.length; cont++) {
+            int randomX = (int) (Math.random() * 1200 + 0);
+            int randomY = (int) (Math.random() * 1024 + 0);
+            stars.add(new Stars(randomX, randomY));
+        }
+    }
+
     public void paint(Graphics g) {
         Graphics2D graphics = (Graphics2D) g;
         graphics.drawImage(fundo, 0, 0, null);
+
+        for (int cont = 0; cont < stars.size(); cont++) {
+            Stars star = stars.get(cont);
+            star.load();
+            graphics.drawImage(star.getImage(), star.getX(), star.getY(), this);
+        }
+
         graphics.drawImage(player.getImage(), player.getX(), player.getY(), this);
 
         if (gameStarted) {
@@ -92,9 +112,14 @@ public class Fase_1 extends JPanel implements ActionListener {
             Enemies_1 enemy1 = enemies1.get(cont);
             enemyRet = enemy1.getBound();
             if (naveRet.intersects(enemyRet)) {
-                player.setVisible(false);
-                enemy1.setVisible(false);
-                gameStarted = false;
+                if (player.getBoost()) {
+                    enemy1.setVisible(false);
+                    enemy1.getAudioBoost();
+                } else {
+                    player.setVisible(false);
+                    enemy1.setVisible(false);
+                    gameStarted = false;
+                }
             }
         }
 
@@ -110,6 +135,7 @@ public class Fase_1 extends JPanel implements ActionListener {
                     enemy1.setLife(bullet.getDamage());
                     if (enemy1.getLife() <= 0) {
                         enemy1.setVisible(false);
+                        enemy1.getAudio();
                     }
                     bullet.setVisible(false);
                 }
@@ -121,12 +147,32 @@ public class Fase_1 extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e
     ) {
         player.updateMove();
+        if (player.getBoost()) {
+            timer.setDelay(2);
+        } else {
+            timer.setDelay(5);
+        }
+
+        for (int cont = 0; cont < stars.size(); cont++) {
+            Stars s = stars.get(cont);
+            if (s.getVisible()) {
+                s.update();
+            } else {
+                stars.remove(s);
+            }
+        }
+
         List<Bullets> bullet = player.getBullet();
 
         for (int cont = 0; cont < bullet.size(); cont++) {
             Bullets b = bullet.get(cont);
             if (b.getVisible()) {
                 b.update();
+                if (player.getBoost()) {
+                    bullet.get(cont).setVelo(-1);
+                } else {
+                    bullet.get(cont).setVelo(2);
+                }
             } else {
                 bullet.remove(b);
             }

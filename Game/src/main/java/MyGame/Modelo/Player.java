@@ -8,13 +8,19 @@ import javax.swing.ImageIcon;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Player {
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.Timer;
+
+public class Player implements ActionListener {
 
     private int x, y;
     private int dx, dy;
     private int height, width;
     private Image image;
     private boolean visible;
+    private boolean boost = false;
+    private Timer timer;
 
     private List<Bullets> bullet;
 
@@ -23,6 +29,9 @@ public class Player {
         this.y = 100;
 
         bullet = new ArrayList<Bullets>();
+
+        timer = new Timer(2000, this);
+        timer.start();
     }
 
     public void load() {
@@ -45,6 +54,13 @@ public class Player {
                 bullet.remove(cont);
             }
         }
+    }
+
+    public void boost() {
+        boost = true;
+        ImageIcon reference = new ImageIcon("/home/joao4774/Documentos/Linguagens de programação/Java/Game-in-java/Game/src/main/java/Images/naveBoost.png");
+        image = reference.getImage();
+
     }
 
     public Rectangle getBound() {
@@ -87,7 +103,13 @@ public class Player {
                 break;
 
             case KeyEvent.VK_SPACE:
-                simpleBullet();
+                if (boost == false) {
+                    simpleBullet();
+                }
+                break;
+
+            case KeyEvent.VK_E:
+                boost();
                 break;
         }
     }
@@ -151,5 +173,18 @@ public class Player {
 
     public void setVisible(boolean visible) {
         this.visible = visible;
+    }
+
+    public boolean getBoost() {
+        return boost;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (boost) {
+            boost = false;
+        } else {
+            load();
+        }
     }
 }
