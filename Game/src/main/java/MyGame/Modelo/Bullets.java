@@ -1,6 +1,7 @@
 package MyGame.Modelo;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 public class Bullets {
@@ -11,6 +12,7 @@ public class Bullets {
     private boolean visible;
     private static final int large = 2048;
     private static int velo = 2;
+    private static int damage = 5;
 
     public Bullets(int x, int y) {
         this.x = x;
@@ -31,6 +33,10 @@ public class Bullets {
         if (x >= large) {
             visible = false;
         }
+    }
+    
+    public Rectangle getBound(){
+        return new Rectangle(x,y,width, height);
     }
 
     public Image getImage() {
@@ -59,5 +65,9 @@ public class Bullets {
 
     public void setVisible(boolean visible) {
         this.visible = visible;
+    }
+    
+    public int getDamage(){
+        return damage;
     }
 }

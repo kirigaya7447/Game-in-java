@@ -1,19 +1,19 @@
 package MyGame.Modelo;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
-public class Enemyes_1 {
+public class Enemies_1 {
     private Image image;
-    private int width; 
-    private int height;
-    private int x; 
-    private int y;
+    private int width, height;
+    private int x, y;
     private static int velo = 1;
     //private static int large = 1; 
     private boolean visible;
+    private int life = 10;
     
-    public Enemyes_1(int x, int y){
+    public Enemies_1(int x, int y){
         this.x = x;
         this.y = y;
         visible = true;
@@ -32,6 +32,10 @@ public class Enemyes_1 {
         /*if(x <= large){
             visible = false;
         }*/
+    }
+    
+    public Rectangle getBound(){
+        return new Rectangle(x,y,width, height);
     }
     
     public Image getImage() {
@@ -60,5 +64,13 @@ public class Enemyes_1 {
 
     public void setVisible(boolean visible) {
         this.visible = visible;
+    }
+    
+    public int getLife(){
+        return life;
+    }
+    
+    public void setLife(int retireLife){
+        life -= retireLife;
     }
 }

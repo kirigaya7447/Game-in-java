@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 import java.awt.event.ActionEvent;
@@ -14,39 +15,43 @@ import java.awt.event.KeyEvent;
 import javax.swing.Timer;
 import java.util.List;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class Fase_1 extends JPanel implements ActionListener {
 
     private Image fundo;
     private Player player;
     private Timer timer;
-    private List<Enemyes_1> enemyes1;
+    private List<Enemies_1> enemies1;
+    private boolean gameStarted = true;
 
     public Fase_1() {
-        setFocusable(true);
-        setDoubleBuffered(true);
-        ImageIcon reference = new ImageIcon("/home/joao4774/Documentos/Linguagens de programação/Java/Game-in-java/Game/src/main/java/Images/fundo-preto.jpg");
-        fundo = reference.getImage();
+        if (gameStarted) {
+            setFocusable(true);
+            setDoubleBuffered(true);
+            ImageIcon reference = new ImageIcon("/home/joao4774/Documentos/Linguagens de programação/Java/Game-in-java/Game/src/main/java/Images/fundo-preto.jpg");
+            fundo = reference.getImage();
+            gameStarted = true;
 
-        player = new Player();
-        player.load();
+            player = new Player();
+            player.load();
 
-        addKeyListener(new tecladoAdapter());
+            addKeyListener(new tecladoAdapter());
 
-        timer = new Timer(5, this);
-        timer.start();
+            timer = new Timer(5, this);
+            timer.start();
 
-        initEnemyes1();
-
+            initEnemyes1();
+        }
     }
 
     public void initEnemyes1() {
-        int coord[] = new int[40];
-        enemyes1 = new ArrayList<Enemyes_1>();
+        int coord[] = new int[50];
+        enemies1 = new ArrayList<Enemies_1>();
         for (int cont = 0; cont < coord.length; cont++) {
             int randomX = (int) (Math.random() * 6000 + 1024);
             int randomY = (int) (Math.random() * 650 + 30);
-            enemyes1.add(new Enemyes_1(randomX, randomY));
+            enemies1.add(new Enemies_1(randomX, randomY));
         }
     }
 
@@ -55,25 +60,66 @@ public class Fase_1 extends JPanel implements ActionListener {
         graphics.drawImage(fundo, 0, 0, null);
         graphics.drawImage(player.getImage(), player.getX(), player.getY(), this);
 
-        List<Bullets> bullet = player.getBullet();
+        if (gameStarted) {
+            List<Bullets> bullet = player.getBullet();
 
-        for (int cont = 0; cont < bullet.size(); cont++) {
-            Bullets b = bullet.get(cont);
-            b.load();
-            graphics.drawImage(b.getImage(), b.getX(), b.getY(), this);
-        }
+            for (int cont = 0; cont < bullet.size(); cont++) {
+                Bullets b = bullet.get(cont);
+                b.load();
+                graphics.drawImage(b.getImage(), b.getX(), b.getY(), this);
+            }
 
-        for (int cont = 0; cont < enemyes1.size(); cont++) {
-            Enemyes_1 enem = enemyes1.get(cont);
-            enem.load();
-            graphics.drawImage(enem.getImage(), enem.getX(), enem.getY(), this);
+            for (int cont = 0; cont < enemies1.size(); cont++) {
+                Enemies_1 enem = enemies1.get(cont);
+                enem.load();
+                graphics.drawImage(enem.getImage(), enem.getX(), enem.getY(), this);
+            }
+        } else {
+            ImageIcon reference = new ImageIcon("/home/joao4774/Documentos/Linguagens de programação/Java/Game-in-java/Game/src/main/java/Images/game-over.jpg");
+            fundo = reference.getImage();
+            graphics.drawImage(fundo, 0, 0, null);
         }
 
         g.dispose();
     }
 
+    public void checkCollisions() {
+        Rectangle naveRet = player.getBound();
+        Rectangle bulletsRet;
+        Rectangle enemyRet;
+
+        for (int cont = 0; cont < enemies1.size(); cont++) {
+            Enemies_1 enemy1 = enemies1.get(cont);
+            enemyRet = enemy1.getBound();
+            if (naveRet.intersects(enemyRet)) {
+                player.setVisible(false);
+                enemy1.setVisible(false);
+                gameStarted = false;
+            }
+        }
+
+        List<Bullets> bulletList = player.getBullet();
+        for (int cont = 0; cont < bulletList.size(); cont++) {
+            Bullets bullet = bulletList.get(cont);
+            bulletsRet = bullet.getBound();
+
+            for (int cont1 = 0; cont1 < enemies1.size(); cont1++) {
+                Enemies_1 enemy1 = enemies1.get(cont1);
+                enemyRet = enemy1.getBound();
+                if (bulletsRet.intersects(enemyRet)) {
+                    enemy1.setLife(bullet.getDamage());
+                    if (enemy1.getLife() <= 0) {
+                        enemy1.setVisible(false);
+                    }
+                    bullet.setVisible(false);
+                }
+            }
+        }
+    }
+
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e
+    ) {
         player.updateMove();
         List<Bullets> bullet = player.getBullet();
 
@@ -86,16 +132,29 @@ public class Fase_1 extends JPanel implements ActionListener {
             }
         }
 
-        for (int cont = 0; cont < enemyes1.size(); cont++) {
-            Enemyes_1 enem = enemyes1.get(cont);
+        for (int cont = 0; cont < enemies1.size(); cont++) {
+            Enemies_1 enem = enemies1.get(cont);
             if (enem.getVisible()) {
                 enem.update();
             } else {
-                enemyes1.remove(cont);
+                enemies1.remove(cont);
             }
         }
 
+        checkCollisions();
         repaint();
+        if (gameStarted == false) {
+            int confirm = JOptionPane.showConfirmDialog(null, "Deseja continuar?", "Game Over :(", JOptionPane.OK_CANCEL_OPTION);
+            if (confirm == 0) {
+                gameStarted = true;
+                ImageIcon reference = new ImageIcon("/home/joao4774/Documentos/Linguagens de programação/Java/Game-in-java/Game/src/main/java/Images/fundo-preto.jpg");
+                fundo = reference.getImage();
+                player = new Player();
+                player.load();
+            } else {
+                System.exit(0);
+            }
+        }
     }
 
     private class tecladoAdapter extends KeyAdapter {

@@ -1,6 +1,7 @@
 package MyGame.Modelo;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
@@ -13,6 +14,7 @@ public class Player {
     private int dx, dy;
     private int height, width;
     private Image image;
+    private boolean visible;
 
     private List<Bullets> bullet;
 
@@ -28,6 +30,7 @@ public class Player {
         image = reference.getImage();
         height = image.getHeight(null);
         width = image.getWidth(null);
+        visible = true;
     }
 
     public void updateMove() {
@@ -38,10 +41,14 @@ public class Player {
     public void simpleBullet() {
         this.bullet.add(new Bullets(x + width, y + (height / 2)));
         if (bullet.size() == 20) {
-            for (int cont = 18; cont <= 20; cont++) {
+            for (int cont = 18; cont <= bullet.size(); cont++) {
                 bullet.remove(cont);
             }
         }
+    }
+
+    public Rectangle getBound() {
+        return new Rectangle(x, y, width, height);
     }
 
     public void keyPressed(KeyEvent pressioned) {
@@ -51,7 +58,15 @@ public class Player {
                 dy = -3;
                 break;
 
+            case KeyEvent.VK_W:
+                dy = -3;
+                break;
+
             case KeyEvent.VK_DOWN:
+                dy = 3;
+                break;
+
+            case KeyEvent.VK_S:
                 dy = 3;
                 break;
 
@@ -59,9 +74,18 @@ public class Player {
                 dx = -3;
                 break;
 
+            case KeyEvent.VK_A:
+                dx = -3;
+                break;
+
             case KeyEvent.VK_RIGHT:
                 dx = 3;
                 break;
+
+            case KeyEvent.VK_D:
+                dx = 3;
+                break;
+
             case KeyEvent.VK_SPACE:
                 simpleBullet();
                 break;
@@ -75,7 +99,15 @@ public class Player {
                 dy = 0;
                 break;
 
+            case KeyEvent.VK_W:
+                dy = 0;
+                break;
+
             case KeyEvent.VK_DOWN:
+                dy = 0;
+                break;
+
+            case KeyEvent.VK_S:
                 dy = 0;
                 break;
 
@@ -83,7 +115,15 @@ public class Player {
                 dx = 0;
                 break;
 
+            case KeyEvent.VK_A:
+                dx = 0;
+                break;
+
             case KeyEvent.VK_RIGHT:
+                dx = 0;
+                break;
+
+            case KeyEvent.VK_D:
                 dx = 0;
                 break;
         }
@@ -103,5 +143,13 @@ public class Player {
 
     public List<Bullets> getBullet() {
         return bullet;
+    }
+
+    public boolean getVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 }
