@@ -3,9 +3,9 @@ package MyGame;
 import javax.swing.JFrame;
 import MyGame.Modelo.Fase_1;
 
-public class Container extends JFrame {
+public class Main extends JFrame {
 
-    public Container() {
+    public Main() {
         add(new Fase_1());
         setTitle("Game pica 2D!!!");
         setSize(1024, 728);
@@ -16,6 +16,6 @@ public class Container extends JFrame {
     }
 
     public static void main(String[] args) {
-        new Container();
+        new Main();
     }
 }

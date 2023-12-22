@@ -3,36 +3,37 @@ package MyGame.Modelo;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-public class Bullets {
-
+public class Enemyes_1 {
     private Image image;
-    private int x, y;
-    private int width, height;
+    private int width; 
+    private int height;
+    private int x; 
+    private int y;
+    private static int velo = 1;
+    //private static int large = 1; 
     private boolean visible;
-    private static final int large = 2048;
-    private static int velo = 2;
-
-    public Bullets(int x, int y) {
+    
+    public Enemyes_1(int x, int y){
         this.x = x;
         this.y = y;
         visible = true;
     }
-
-    public void load() {
-        ImageIcon reference = new ImageIcon("/home/joao4774/Documentos/Linguagens de programação/Java/Game-in-java/Game/src/main/java/Images/bullet.png");
+    
+    public void load(){
+        ImageIcon reference = new ImageIcon("/home/joao4774/Documentos/Linguagens de programação/Java/Game-in-java/Game/src/main/java/Images/alien.png");
         image = reference.getImage();
-
-        this.width = image.getWidth(null);
+        
         this.height = image.getHeight(null);
+        this.width = image.getWidth(null);
     }
-
-    public void update() {
-        this.x += velo;
-        if (x >= large) {
+    
+    public void update(){
+        this.x -= velo;
+        /*if(x <= large){
             visible = false;
-        }
+        }*/
     }
-
+    
     public Image getImage() {
         return image;
     }

@@ -37,9 +37,8 @@ public class Player {
 
     public void simpleBullet() {
         this.bullet.add(new Bullets(x + width, y + (height / 2)));
-        System.out.println("Balas: " + bullet.size());
-        if (bullet.size() == 6) {
-            for (int cont = 4; cont <= 6; cont++) {
+        if (bullet.size() == 20) {
+            for (int cont = 18; cont <= 20; cont++) {
                 bullet.remove(cont);
             }
         }
