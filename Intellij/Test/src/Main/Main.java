@@ -19,7 +19,7 @@ public class Main extends JFrame{
 
     texto.setText("Olá Marilene!");
 
-    painel.add(texto);
+    painel.add(texto);  
     janela.add(painel);
 
     janela.setVisible(true);
