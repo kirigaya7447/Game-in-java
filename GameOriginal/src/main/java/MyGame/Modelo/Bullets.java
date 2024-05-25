@@ -6,13 +6,13 @@ import javax.swing.ImageIcon;
 
 public class Bullets {
 
+    private static final int large = 2048;
+    private static int velo = 2;
+    private static int damage = 5;
     private Image image;
     private int x, y;
     private int width, height;
     private boolean visible;
-    private static final int large = 2048;
-    private static int velo = 2;
-    private static int damage = 5;
 
     public Bullets(int x, int y) {
         this.x = x;
@@ -34,9 +34,9 @@ public class Bullets {
             visible = false;
         }
     }
-    
-    public Rectangle getBound(){
-        return new Rectangle(x,y,width, height);
+
+    public Rectangle getBound() {
+        return new Rectangle(x, y, width, height);
     }
 
     public Image getImage() {
@@ -66,8 +66,8 @@ public class Bullets {
     public void setVisible(boolean visible) {
         this.visible = visible;
     }
-    
-    public int getDamage(){
+
+    public int getDamage() {
         return damage;
     }
 }

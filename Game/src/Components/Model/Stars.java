@@ -1,4 +1,4 @@
-package MyGame.Modelo;
+package Components.Model;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;

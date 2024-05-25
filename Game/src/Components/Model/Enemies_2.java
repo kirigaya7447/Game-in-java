@@ -1,4 +1,4 @@
-package MyGame.Modelo;
+package Components.Model;
 
 public class Enemies_2 {
 

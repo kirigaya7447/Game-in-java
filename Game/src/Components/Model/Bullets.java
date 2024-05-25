@@ -1,45 +1,42 @@
-package MyGame.Modelo;
+package Components.Model;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
-import java.util.Random;
+public class Bullets {
 
-public class Stars {
-
-    private static int velo = 5;
+    private static final int large = 2048;
+    private static int velo = 2;
+    private static int damage = 5;
     private Image image;
-    private int width, height;
     private int x, y;
-    //private static int large = 1; 
+    private int width, height;
     private boolean visible;
 
-    public Stars(int x, int y) {
+    public Bullets(int x, int y) {
         this.x = x;
         this.y = y;
         visible = true;
     }
 
     public void load() {
-        ImageIcon reference = new ImageIcon("/home/joao4774/Documentos/Linguagens de programação/Java/Game-in-java/Game/src/main/java/Images/star.png");
+        ImageIcon reference = new ImageIcon("/home/joao4774/Documentos/Linguagens de programação/Java/Game-in-java/Game/src/main/java/Images/bullet.png");
         image = reference.getImage();
 
-        this.height = image.getHeight(null);
         this.width = image.getWidth(null);
+        this.height = image.getHeight(null);
     }
 
     public void update() {
-        if (x < 0) {
-            this.x = width;
-            Random numX = new Random();
-            int som = numX.nextInt(500);
-            this.x = som + 2048;
-
-            Random numY = new Random();
-            this.y = numY.nextInt(1456);
-        } else {
-            this.x -= velo;
+        this.x += velo;
+        if (x >= large) {
+            visible = false;
         }
+    }
+
+    public Rectangle getBound() {
+        return new Rectangle(x, y, width, height);
     }
 
     public Image getImage() {
@@ -58,7 +55,7 @@ public class Stars {
         return velo;
     }
 
-    public static void setVelo(int veloc) {
+    public void setVelo(int veloc) {
         velo = veloc;
     }
 
@@ -68,5 +65,9 @@ public class Stars {
 
     public void setVisible(boolean visible) {
         this.visible = visible;
+    }
+
+    public int getDamage() {
+        return damage;
     }
 }
