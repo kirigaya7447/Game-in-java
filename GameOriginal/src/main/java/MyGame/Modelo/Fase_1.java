@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
 public class Fase_1 extends JPanel implements ActionListener {
 
     private Image fundo;
-    private Player player;
+    private Player player;      
     private Timer timer;
     private List<Enemies_1> enemies1;
     private List<Stars> stars;
@@ -31,7 +31,7 @@ public class Fase_1 extends JPanel implements ActionListener {
         if (gameStarted) {
             setFocusable(true);
             setDoubleBuffered(true);
-            ImageIcon reference = new ImageIcon("/home/joao4774/Documentos/Linguagens de programação/Java/Game-in-java/Game/src/main/java/Images/fundo-preto.jpg");
+            ImageIcon reference = new ImageIcon("/home/admin/Área de trabalho/GitHub/Game-in-java/GameOriginal/src/main/java/Images/fundo-preto.jpg");
             fundo = reference.getImage();
             gameStarted = true;
 
