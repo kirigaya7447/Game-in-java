@@ -144,8 +144,7 @@ public class Fase_1 extends JPanel implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e
-    ) {
+    public void actionPerformed(ActionEvent e) {
         player.updateMove();
         if (player.getBoost()) {
             timer.setDelay(2);

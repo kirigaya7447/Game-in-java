@@ -156,7 +156,7 @@ public class Player {
         this.visible = visible;
     }
 
-    @Override
+    /*@Override
     public void actionPerformed(ActionEvent e){
         if(boost){
             boost = false;
@@ -164,6 +164,6 @@ public class Player {
         else{
             load();
         }
-    }
+    }*/
 
 }
