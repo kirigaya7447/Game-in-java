@@ -82,7 +82,7 @@ public class Enemies_1 {
 
     public int getVelo() {
         return velo;
-    }
+    }   
 
     public static void setVelo(int veloc) {
         velo = veloc;

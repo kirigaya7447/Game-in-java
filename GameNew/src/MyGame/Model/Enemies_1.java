@@ -67,7 +67,7 @@ public class Enemies_1 {
     }
 
     public Image getImage(){
-        return image;
+        return alien;
     }
 
     public int getX(){
@@ -90,8 +90,8 @@ public class Enemies_1 {
         return life;
     }
 
-    public static void setVelo(int velo){
-        velo = velo;
+    public static void setVelo(int veloc){
+        velo = veloc;
     }
 
     public void setVisible(boolean visible){
