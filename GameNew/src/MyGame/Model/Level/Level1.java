@@ -17,7 +17,7 @@ public class Level1 extends JPanel implements ActionListener{
     public Level1(){
         setFocusable(true);
         setDoubleBuffered(true);
-        ImageIcon reference = new ImageIcon("/home/admin/Área de trabalho/GitHub/Game-in-java/GameOriginal/src/main/java/Images/fundo-preto.jpg");
+        ImageIcon reference = new ImageIcon("/home/admin/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/fundo-preto.jpg");
         fundo = reference.getImage();
     }
 
