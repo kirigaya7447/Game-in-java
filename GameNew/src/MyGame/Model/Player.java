@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.Timer;
@@ -19,11 +20,15 @@ public class Player {
     private boolean boost = false;
 
     private Timer timer;
-    private Image image;
+    private Image player;
+
+    private List<Bullets> bullets;
 
     public Player(){
         this.x = 100;
         this.y = 100;
+
+        bullets = new ArrayList<Bullets>();
 
         timer = new Timer(2000, null);
         timer.start();
@@ -31,9 +36,9 @@ public class Player {
 
     public void load(){
         ImageIcon reference = new ImageIcon("/home/admin/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/nave.png");
-        image = reference.getImage();
-        height = image.getHeight(null);
-        width = image.getWidth(null);
+        player = reference.getImage();
+        height = player.getHeight(null);
+        width = player.getWidth(null);
         visible = true;
     }
 
@@ -45,11 +50,20 @@ public class Player {
     public void boost(){
         boost = true;
         ImageIcon reference = new ImageIcon("/home/admin/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/naveBoost.png");
-        image = reference.getImage();
+        player = reference.getImage();
     }
 
     public Rectangle getBound(){
         return new Rectangle(x, y, height, width);
+    }
+
+    public void simpleBullet(){
+        this.bullets.add(new Bullets(x + width, y + (height/2)));
+        if(bullets.size() >= 20){
+            for(int cont = 18; cont <= bullets.size(); cont++){
+                bullets.remove(cont);
+            }
+        }
     }
 
     public void keyPressed(KeyEvent keyPressioned){
@@ -81,11 +95,11 @@ public class Player {
                 break;
             case KeyEvent.VK_SPACE:
                 if(boost == false){
-
+                    simpleBullet();
                 }
                 break;
             case KeyEvent.VK_E:
-                //boost();
+                boost();
                 break;
         }
     }
@@ -117,14 +131,6 @@ public class Player {
             case KeyEvent.VK_D:
                 dx = 0;
                 break;
-            case KeyEvent.VK_SPACE:
-                if(boost == false){
-
-                }
-                break;
-            case KeyEvent.VK_E:
-                //boost();
-                break;
         }
     }
 
@@ -152,11 +158,15 @@ public class Player {
         return visible;
     }
 
+    public List<Bullets> getBullets(){
+        return bullets;
+    }
+
     public void setVisible(boolean visible){
         this.visible = visible;
     }
 
-    /*@Override
+    @Override
     public void actionPerformed(ActionEvent e){
         if(boost){
             boost = false;
@@ -164,6 +174,6 @@ public class Player {
         else{
             load();
         }
-    }*/
+    }   
 
 }
