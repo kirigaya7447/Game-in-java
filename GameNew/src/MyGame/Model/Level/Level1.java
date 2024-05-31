@@ -34,6 +34,16 @@ public class Level1 extends JPanel implements ActionListener{
         setDoubleBuffered(true);
         ImageIcon reference = new ImageIcon("/home/admin/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/fundo-preto.jpg");
         fundo = reference.getImage();
+        gameStarted = true;
+
+        player = new Player();
+        player.load();
+
+        timer = new Timer(5000, this);
+        timer.start();
+
+        initStars();
+        initEnemies1();
     }
 
     public void initEnemies1(){
@@ -76,10 +86,11 @@ public class Level1 extends JPanel implements ActionListener{
                 graphics.drawImage(bullet.getImage(), bullet.getX(), bullet.getY(), this);
             }
 
-            for(int cont = 0; cont < enemies_1.size(); cont++){
+            for(int cont = 0; cont < enemies_1.size(); cont++) {
                 Enemies_1 enemy = enemies_1.get(cont);
                 enemy.load();
                 graphics.drawImage(enemy.getImage(), enemy.getX(), enemy.getY(), this);
+
             }
         }
         else{
@@ -92,7 +103,7 @@ public class Level1 extends JPanel implements ActionListener{
     }
 
     public void checkColisions(){
-        
+
     }
 
     @Override

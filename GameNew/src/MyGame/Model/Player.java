@@ -31,7 +31,7 @@ public class Player implements ActionListener {
 
         bullets = new ArrayList<Bullets>();
 
-        timer = new Timer(2000, null);
+        timer = new Timer(2000, this);
         timer.start();
     }
 
