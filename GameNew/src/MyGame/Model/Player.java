@@ -3,6 +3,7 @@ package MyGame.Model;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
@@ -11,7 +12,7 @@ import java.util.List;
 
 import javax.swing.Timer;
 
-public class Player {
+public class Player implements ActionListener {
     private int x, y;
     private int dx, dy;
     private int height, width;
@@ -139,16 +140,12 @@ public class Player {
     }
 
     public int getY(){
-        return x;
+        return y;
     }
 
-    public int getImage(){
-        return x;
+    public Image getImage(){
+        return player;
     }
-
-    /*public int getBUllets(){
-        return x;
-    }*/
 
     public boolean getBoost(){
         return boost;
@@ -174,6 +171,6 @@ public class Player {
         else{
             load();
         }
-    }   
+    }
 
 }
