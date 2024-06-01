@@ -80,7 +80,7 @@ public class Fase_1 extends JPanel implements ActionListener {
 
         graphics.drawImage(player.getImage(), player.getX(), player.getY(), this);
 
-        if (gameStarted) {
+        if (gameStarted) {  
             List<Bullets> bullet = player.getBullet();
 
             for (int cont = 0; cont < bullet.size(); cont++) {

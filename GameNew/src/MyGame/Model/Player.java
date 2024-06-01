@@ -31,7 +31,7 @@ public class Player implements ActionListener {
 
         bullets = new ArrayList<Bullets>();
 
-        timer = new Timer(2000, this);
+        timer = new Timer(1000, this);
         timer.start();
     }
 
@@ -71,10 +71,10 @@ public class Player implements ActionListener {
         int numTecla = keyPressioned.getKeyCode();
         switch(numTecla){
             case KeyEvent.VK_UP:
-                dy += 3;
+                dy -= 3;
                 break;
             case KeyEvent.VK_DOWN:
-                dy -= 3;
+                dy += 3;
                 break;
             case KeyEvent.VK_LEFT:
                 dx -= 3;
