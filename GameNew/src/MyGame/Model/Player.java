@@ -36,7 +36,7 @@ public class Player implements ActionListener {
     }
 
     public void load(){
-        ImageIcon reference = new ImageIcon("/home/admin/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/nave.png");
+        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/nave.png");
         player = reference.getImage();
         height = player.getHeight(null);
         width = player.getWidth(null);
@@ -50,7 +50,7 @@ public class Player implements ActionListener {
 
     public void boost(){
         boost = true;
-        ImageIcon reference = new ImageIcon("/home/admin/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/naveBoost.png");
+        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/naveBoost.png");
         player = reference.getImage();
     }
 

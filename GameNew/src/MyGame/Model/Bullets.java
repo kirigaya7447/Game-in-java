@@ -21,7 +21,7 @@ public class Bullets {
     }
 
     public void load(){
-        ImageIcon reference = new ImageIcon("/home/admin/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/bullet.png");
+        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/bullet.png");
         bullet = reference.getImage();
 
         height = bullet.getHeight(null);

@@ -25,7 +25,7 @@ public class Enemies_1 {
     }
 
     public void load(){
-        ImageIcon reference = new ImageIcon("/home/admin/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/alien.png");
+        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/alien.png");
         alien = reference.getImage();
 
         height = alien.getHeight(null);
@@ -42,7 +42,7 @@ public class Enemies_1 {
 
     public void getAudio(){
         try{
-            File enemyDieSong = new File("/home/admin/Área de trabalho/GitHub/Game-in-java/GameNew/src/Sounds/oof.wav");
+            File enemyDieSong = new File("/home/userComum/Área de trabalho/GitHub/Game-in-java/GameNew/src/Sounds/oof.wav");
             AudioInputStream stream = AudioSystem.getAudioInputStream(enemyDieSong);
             Clip toque = AudioSystem.getClip();
             toque.open(stream);
@@ -55,7 +55,7 @@ public class Enemies_1 {
 
     public void getAudioBoost(){
         try{
-            File enemyDieBoost = new File("/home/admin/Área de trabalho/GitHub/Game-in-java/GameNew/src/Sounds/nossa.wav");
+            File enemyDieBoost = new File("/home/userComum/Área de trabalho/GitHub/Game-in-java/GameNew/src/Sounds/nossa.wav");
             AudioInputStream stream = AudioSystem.getAudioInputStream(enemyDieBoost);
             Clip toque = AudioSystem.getClip();
             toque.open(stream);
