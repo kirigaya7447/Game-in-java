@@ -100,9 +100,24 @@ public class Player implements ActionListener {
                 }
                 break;
             case KeyEvent.VK_E:
-                boost();
+                Thread ligaBoost = new Thread(new Boost());
+                ligaBoost.start();
                 break;
         }
+    }
+
+    class Boost implements Runnable{
+        @Override
+        public void run(){
+            long duration = 3000;
+            long start = System.nanoTime();
+
+            while((System.nanoTime() - start) / 1_000_000 < duration){
+                boost();
+            }
+
+        }
+
     }
 
     public void keyReleased(KeyEvent keyPressioned){
