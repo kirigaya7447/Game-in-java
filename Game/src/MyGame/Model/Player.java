@@ -31,12 +31,12 @@ public class Player implements ActionListener {
 
         bullets = new ArrayList<Bullets>();
 
-        timer = new Timer(1000, this);
+        timer = new Timer(500, this);
         timer.start();
     }
 
     public void load(){
-        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/nave.png");
+        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/Images/nave.png");
         player = reference.getImage();
         height = player.getHeight(null);
         width = player.getWidth(null);
@@ -50,7 +50,7 @@ public class Player implements ActionListener {
 
     public void boost(){
         boost = true;
-        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/naveBoost.png");
+        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/Images/naveBoost.png");
         player = reference.getImage();
     }
 
@@ -83,10 +83,10 @@ public class Player implements ActionListener {
                 dx += 3;
                 break;
             case KeyEvent.VK_W:
-                dy += 3;
+                dy -= 3;
                 break;
             case KeyEvent.VK_S:
-                dy -= 3;
+                dy += 3;
                 break;
             case KeyEvent.VK_A:
                 dx -= 3;

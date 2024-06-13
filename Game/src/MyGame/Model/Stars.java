@@ -18,7 +18,7 @@ public class Stars {
     }
 
     public void load(){
-        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/star.png");
+        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/Images/star.png");
         star = reference.getImage();
 
         this.height = star.getHeight(null);

@@ -32,7 +32,7 @@ public class Level1 extends JPanel implements ActionListener{
     public Level1(){
         setFocusable(true);
         setDoubleBuffered(true);
-        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/fundo-preto.jpg");
+        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/Images/fundo-preto.jpg");
         fundo = reference.getImage();
         gameStarted = true;
 
@@ -96,7 +96,7 @@ public class Level1 extends JPanel implements ActionListener{
             }
         }
         else{
-            ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/game-over.jpg");
+            ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/Images/game-over.jpg");
             fundo = reference.getImage();
             graphics.drawImage(fundo, 0, 0, null);
         }
@@ -202,7 +202,7 @@ public class Level1 extends JPanel implements ActionListener{
             int confirm = JOptionPane.showConfirmDialog(null, "Deseja continuar?", "Game Over", JOptionPane.OK_CANCEL_OPTION);
             if(confirm == 0){
                 gameStarted = true;
-                ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/GameNew/src/Images/fundo-preto.jpg");
+                ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/Images/fundo-preto.jpg");
                 fundo = reference.getImage();
                 player = new Player();
                 initEnemies1();
