@@ -138,8 +138,9 @@ public class Level1 extends JPanel implements ActionListener{
                 if (retBullet.intersects(retEnemy)) {
                     enemy.setLife(bullet.getDamage());
                     if(enemy.getLife() <= 0){
-                        enemy.setVisible(false);
                         enemy.getAudio();
+                        enemy.death();
+                        enemy.setVisible(false);
                     }
                     bullet.setVisible(false);
                 }

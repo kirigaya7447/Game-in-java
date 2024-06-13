@@ -66,6 +66,11 @@ public class Enemies_1 {
         }
     }
 
+    public void death(){
+        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/OriginalImages/liar-Original.png");
+        alien = reference.getImage();
+    }
+
     public Image getImage(){
         return alien;
     }
