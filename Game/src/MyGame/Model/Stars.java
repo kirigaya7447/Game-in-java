@@ -49,7 +49,7 @@ public class Stars {
             this.x -= velo;
         }
     }
-    
+
     public Image getImage(){
         return star;
     }
