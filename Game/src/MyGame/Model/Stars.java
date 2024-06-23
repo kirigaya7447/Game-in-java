@@ -53,16 +53,8 @@ public class Stars {
         return y;
     }
 
-    public int getVelo(){
-        return velo;
-    }
-
     public boolean getVisible(){
         return visible;
-    }
-
-    public static void setVelo(int veloc){
-        velo = veloc;
     }
 
     public void setVisible(boolean visible){
