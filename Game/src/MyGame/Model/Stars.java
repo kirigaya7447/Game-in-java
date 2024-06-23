@@ -17,30 +17,39 @@ public class Stars {
         visible = true;
     }
 
+    //carrega a imagem das estrelas
     public void load(){
+        //cria uma instância de imageicon
         ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/Images/star.png");
+        //star recebe a imagem
         star = reference.getImage();
 
+        //seta altura e largura
         this.height = star.getHeight(null);
         this.width = star.getWidth(null);
     }
 
+    //toda vez que é chamada, faz o objeto se mover
     public void update(){
         if(x < 0){
-            this.x = width;
-
+            //instância de random
             Random numX = new Random();
-            int som = numX.nextInt(500);
+            //gera um número aleatório
+            int som = numX.nextInt(501);
+            //soma o número aleatório para posicionamento à frente do jogador
             this.x = som + 2048;
 
+            //gera outro número aleatório
             Random numY = new Random();
+            //seta o número aleatório
             this.y = numY.nextInt(1456);
         }
         else{
+            //subtrai a posição com a velocidade
             this.x -= velo;
         }
     }
-
+    
     public Image getImage(){
         return star;
     }
