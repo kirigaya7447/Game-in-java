@@ -21,20 +21,26 @@ public class Bullets {
     }
 
     public void load(){
+        //instância de imageicon
         ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/Images/bullet.png");
+        //recebe a imagem
         bullet = reference.getImage();
 
+        //seta a altura e largura com base na imagem
         height = bullet.getHeight(null);
         width = bullet.getWidth(null);
     }
 
     public void update(){
+        //altera a posição com base na velocidade
         this.x += velo;
+        //se x for maior que a largura da tela, some a imagem
         if(x >= large){
             visible = false;
         }
     }
 
+    //retorna um retângulo com posição e tamanho
     public Rectangle getBound(){
         return new Rectangle(x, y, width, height);
     }
@@ -49,10 +55,6 @@ public class Bullets {
 
     public int getY(){
         return y;
-    }
-
-    public int getVelo(){
-        return velo;
     }
 
     public boolean getVisible(){

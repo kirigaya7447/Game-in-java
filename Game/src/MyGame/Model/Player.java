@@ -35,39 +35,59 @@ public class Player implements ActionListener {
         timer.start();
     }
 
+    //carrega a imagem doo player
     public void load(){
+        //cria instância de ImageIcon
         ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/Images/nave.png");
+        //seta a image contida na instância
         player = reference.getImage();
+
+        //seta a altura com base na imagem
         height = player.getHeight(null);
+        //seta a largura com base na imagem
         width = player.getWidth(null);
+
+        //seta o personagem como visível
         visible = true;
     }
 
     public void updateMove(){
+        //pegando o valor de d* e somando para que o valor seja ou subtraído ou somado
         x += dx;
         y += dy;
     }
 
     public void boost(){
+        //seta o boost como true
         boost = true;
+        //cria instância da imagem do boost
         ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/Images/naveBoost.png");
+        //seta a imagem do player como boost
         player = reference.getImage();
     }
 
+    //retorna retângulo para verificar colisões
     public Rectangle getBound(){
         return new Rectangle(x, y, height, width);
     }
 
+    //tiro simples
     public void simpleBullet(){
+        //adiciona tiro passando a posição atual e metade da altura para que saia da metade do tamanho do personagem
         this.bullets.add(new Bullets(x + width, y + (height/2)));
+
+        //verifica se os tiros passaram do limite
         if(bullets.size() >= 20){
+            //se passou retira os dois últimos
             for(int cont = 18; cont <= bullets.size(); cont++){
                 bullets.remove(cont);
             }
         }
     }
 
+    //verifica o pressionamento de teclas
     public void keyPressed(KeyEvent keyPressioned){
+        //pega o código da tecla pressionada
         int numTecla = keyPressioned.getKeyCode();
         switch(numTecla){
             case KeyEvent.VK_UP:
@@ -100,7 +120,9 @@ public class Player implements ActionListener {
                 }
                 break;
             case KeyEvent.VK_E:
+                //cria tarefa para ser executada em paralelo
                 Thread ligaBoost = new Thread(new Boost());
+                //dá início a execução
                 ligaBoost.start();
                 break;
         }
@@ -108,10 +130,15 @@ public class Player implements ActionListener {
 
     class Boost implements Runnable{
         @Override
+        //fazer o boost acontecer
         public void run(){
+            //seta o tempo de duração da repetição (3s)
             long duration = 3000;
+            //começa a contar o tempo
             long start = System.nanoTime();
 
+            //enquanto o tempo decorrido menos o inicial(convertido em milissegundos)
+            // for menor do que a duração, ele chama o boost
             while((System.nanoTime() - start) / 1_000_000 < duration){
                 boost();
             }
@@ -120,7 +147,9 @@ public class Player implements ActionListener {
 
     }
 
+    //verifica quando a tecla é solta após pressionada
     public void keyReleased(KeyEvent keyPressioned){
+        //pega o código da tecla
         int numTecla = keyPressioned.getKeyCode();
         switch(numTecla){
             case KeyEvent.VK_UP:
@@ -179,6 +208,7 @@ public class Player implements ActionListener {
     }
 
     @Override
+    //verfica para fazer a troca dos ícones do player
     public void actionPerformed(ActionEvent e){
         if(boost){
             boost = false;
