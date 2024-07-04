@@ -1,33 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="271ac4a3-e21b-4cd5-8a95-ca6b27fbc5e5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/alien.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/bullet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/fundo-preto.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/game-over.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/liar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/nave.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/naveBoost.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/star.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyGame/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyGame/Model/Bullets.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyGame/Model/Enemies_1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyGame/Model/Level/Level1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyGame/Model/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyGame/Model/Stars.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OriginalImages/alien-Origin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OriginalImages/boss-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OriginalImages/bullet-Origin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OriginalImages/bullet-Original.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OriginalImages/explosion-Original.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OriginalImages/liar-Original.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sounds/nossa.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sounds/oof.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sounds/seu-madruga-nossa.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,10 +15,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2ifUC1Nj6lODrRxz7LOu4QAqEOI" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -48,40 +26,31 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
+    "Application.Main (1).executor": "Run",
+    "Application.Main.executor": "Coverage",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.MyGame.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Game" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MyGame.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="MyGame.Main" />
       <module name="Game" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MyGame.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.MyGame.Main" />
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="MyGame.Main" />
+      <module name="Game" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -93,5 +62,8 @@
       <updated>1719880994422</updated>
     </task>
     <servers />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Game$Main.ic" NAME="Main Coverage Results" MODIFIED="1720056650406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
