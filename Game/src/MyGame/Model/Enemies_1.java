@@ -27,7 +27,7 @@ public class Enemies_1 {
     //carrega a imagem
     public void load(){
         //cria instância de ImageIcon e coleta o local da imagem
-        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/Images/alien.png");
+        ImageIcon reference = new ImageIcon("src/Images/alien.png");
         //seta a imagem, passando a instância
         alien = reference.getImage();
 
@@ -51,7 +51,7 @@ public class Enemies_1 {
     public void getAudio(){
         try{
             //coleta o local do som
-            File enemyDieSong = new File("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/Sounds/oof.wav");
+            File enemyDieSong = new File("src/Sounds/oof.wav");
             //através do arquivo, coleta o som
             AudioInputStream stream = AudioSystem.getAudioInputStream(enemyDieSong);
             //cria um clip para reproduzir o som
@@ -70,7 +70,7 @@ public class Enemies_1 {
     public void getAudioBoost(){
         try{
             //pega o local do arquivo
-            File enemyDieBoost = new File("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/Sounds/nossa.wav");
+            File enemyDieBoost = new File("src/Sounds/nossa.wav");
             //coleta o som presente no arquivo
             AudioInputStream stream = AudioSystem.getAudioInputStream(enemyDieBoost);
             //cria o clip
@@ -87,7 +87,7 @@ public class Enemies_1 {
 
     //ainda não funciona, mas terá um sprite de explosão
     public void death(){
-        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/OriginalImages/liar-Original.png");
+        ImageIcon reference = new ImageIcon("src/OriginalImages/liar-Original.png");
         alien = reference.getImage();
     }
 

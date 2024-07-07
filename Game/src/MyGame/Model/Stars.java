@@ -20,7 +20,7 @@ public class Stars {
     //carrega a imagem das estrelas
     public void load(){
         //cria uma instância de imageicon
-        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/Images/star.png");
+        ImageIcon reference = new ImageIcon("src/Images/star.png");
         //star recebe a imagem
         star = reference.getImage();
 

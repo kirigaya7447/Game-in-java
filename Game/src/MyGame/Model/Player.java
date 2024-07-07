@@ -38,7 +38,7 @@ public class Player implements ActionListener {
     //carrega a imagem doo player
     public void load(){
         //cria instância de ImageIcon
-        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/Images/nave.png");
+        ImageIcon reference = new ImageIcon("src/Images/nave.png");
         //seta a image contida na instância
         player = reference.getImage();
 
@@ -61,7 +61,7 @@ public class Player implements ActionListener {
         //seta o boost como true
         boost = true;
         //cria instância da imagem do boost
-        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/Images/naveBoost.png");
+        ImageIcon reference = new ImageIcon("src/Images/naveBoost.png");
         //seta a imagem do player como boost
         player = reference.getImage();
     }

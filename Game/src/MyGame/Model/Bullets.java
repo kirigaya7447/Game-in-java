@@ -22,7 +22,7 @@ public class Bullets {
 
     public void load(){
         //instância de imageicon
-        ImageIcon reference = new ImageIcon("/home/userComum/Área de trabalho/GitHub/Game-in-java/Game/src/Images/bullet.png");
+        ImageIcon reference = new ImageIcon("src/Images/bullet.png");
         //recebe a imagem
         bullet = reference.getImage();
 
